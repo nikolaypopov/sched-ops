@@ -153,6 +153,20 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:fb3cfb4ef2dcd47847c4c3bbf0ba4aaa5ecca635c974368059863277be2cb9e3"
+  name = "github.com/libopenstorage/operator"
+  packages = [
+    "pkg/apis/core",
+    "pkg/apis/core/v1alpha1",
+    "pkg/client/clientset/versioned",
+    "pkg/client/clientset/versioned/scheme",
+    "pkg/client/clientset/versioned/typed/core/v1alpha1",
+  ]
+  pruneopts = "UT"
+  revision = "2f8b72b05421ad6bd1a6455994d631c9aea4fdcf"
+
+[[projects]]
+  branch = "master"
   digest = "1:ab84be9b091b7cf9f66bb79f78ecb56844ae56dd2c7101ec3646f67afb3802ac"
   name = "github.com/libopenstorage/stork"
   packages = [
@@ -617,6 +631,8 @@
   input-imports = [
     "github.com/kubernetes-incubator/external-storage/snapshot/pkg/apis/crd/v1",
     "github.com/kubernetes-incubator/external-storage/snapshot/pkg/client",
+    "github.com/libopenstorage/operator/pkg/apis/core/v1alpha1",
+    "github.com/libopenstorage/operator/pkg/client/clientset/versioned",
     "github.com/libopenstorage/stork/pkg/apis/stork/v1alpha1",
     "github.com/libopenstorage/stork/pkg/client/clientset/versioned",
     "github.com/portworx/talisman/pkg/apis/portworx/v1beta1",
