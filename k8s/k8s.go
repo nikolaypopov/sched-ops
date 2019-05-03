@@ -164,6 +164,8 @@ type ServiceOps interface {
 	GetService(string, string) (*v1.Service, error)
 	// CreateService creates the given service
 	CreateService(*v1.Service) (*v1.Service, error)
+	// UpdateService updates the given service
+	UpdateService(*v1.Service) (*v1.Service, error)
 	// DeleteService deletes the given service
 	DeleteService(name, namespace string) error
 	// ValidateDeletedService validates if given service is deleted
@@ -1227,6 +1229,14 @@ func (k *k8sOps) CreateService(service *v1.Service) (*v1.Service, error) {
 	}
 
 	return k.client.CoreV1().Services(ns).Create(service)
+}
+
+func (k *k8sOps) UpdateService(service *v1.Service) (*v1.Service, error) {
+	if err := k.initK8sClient(); err != nil {
+		return nil, err
+	}
+
+	return k.client.CoreV1().Services(service.Namespace).Update(service)
 }
 
 func (k *k8sOps) DeleteService(name, namespace string) error {
